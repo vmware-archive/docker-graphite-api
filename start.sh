@@ -39,4 +39,4 @@ CARBON_CACHE_ENABLED=true
 EOF
 
 service carbon-cache start
-gunicorn -b 0.0.0.0:${GRAPHITE_UI_PORT} -w 2 --access-logfile /var/log/gunicorn_access.log --error-logfile /var/$
+gunicorn -b 0.0.0.0:${GRAPHITE_UI_PORT} -w 2 --access-logfile /var/log/gunicorn_access.log --error-logfile /var/log/gunicorn_error.log --log-level error graphite_api.app:app
